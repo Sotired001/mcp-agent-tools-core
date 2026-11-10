@@ -1,0 +1,71 @@
+{
+  "tool": "bike_stock_adjust",
+  "valid": [
+    {
+      "input": {
+        "sku": "GRV-700",
+        "change": 3,
+        "reason": "delivery arrived",
+        "confirmed": true
+      },
+      "output": {
+        "sku": "GRV-700",
+        "before": 4,
+        "after": 7,
+        "reason": "delivery arrived"
+      }
+    },
+    {
+      "input": {
+        "sku": "tnd-2",
+        "change": -1,
+        "reason": "sold",
+        "confirmed": true
+      },
+      "output": {
+        "sku": "TND-2",
+        "before": 1,
+        "after": 0,
+        "reason": "sold"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "input": {
+        "sku": "GRV-700",
+        "change": 1,
+        "reason": "recount",
+        "confirmed": false
+      },
+      "error": "Bad argument `confirmed`: must be true (set it when the person asked for this change)"
+    },
+    {
+      "input": {
+        "sku": "GRV-700",
+        "change": 0,
+        "reason": "recount",
+        "confirmed": true
+      },
+      "error": "Bad argument `change`: must not be 0"
+    },
+    {
+      "input": {
+        "sku": "GRV-700",
+        "change": 51,
+        "reason": "recount",
+        "confirmed": true
+      },
+      "error": "Bad argument `change`: must be from -50 to 50 (got 51)"
+    },
+    {
+      "input": {
+        "sku": "CTY-3",
+        "change": -3,
+        "reason": "sold",
+        "confirmed": true
+      },
+      "error": "CTY-3 has 0 in stock, so taking 3 would leave -3. A count can't go below zero. This refusal is a rule, not a missing tool: tell the person what was refused and why. Don't file an access request about it."
+    }
+  ]
+}

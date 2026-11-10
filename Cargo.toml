@@ -1,0 +1,31 @@
+[package]
+name = "mcp-agent-tools-core"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT"
+description = "A small, hand-written MCP server core in Rust: scoped API keys hide tools, agents can ask for access they lack, and every tool has a contract test."
+keywords = ["mcp", "json-rpc", "agents", "llm", "tools"]
+categories = ["command-line-utilities", "development-tools"]
+readme = "README.md"
+
+[lib]
+name = "mcp_agent_tools_core"
+path = "src/lib.rs"
+
+[[bin]]
+name = "bike-shop-mcp"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"

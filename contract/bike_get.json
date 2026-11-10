@@ -1,0 +1,49 @@
+{
+  "tool": "bike_get",
+  "valid": [
+    {
+      "input": {
+        "sku": "TRL-29"
+      },
+      "output": {
+        "bike": {
+          "sku": "TRL-29",
+          "name": "Trail Badger 29",
+          "category": "mountain",
+          "in_stock": 2
+        }
+      }
+    },
+    {
+      "input": {
+        "sku": " kid-16 "
+      },
+      "output": {
+        "bike": {
+          "sku": "KID-16",
+          "name": "Puddle Jumper 16",
+          "category": "kids",
+          "in_stock": 7
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "input": {},
+      "error": "Bad argument `sku`: is required"
+    },
+    {
+      "input": {
+        "sku": ""
+      },
+      "error": "Bad argument `sku`: must be 1 to 40 characters"
+    },
+    {
+      "input": {
+        "sku": "ROAD-1"
+      },
+      "error": "No bike has the SKU ROAD-1. Check the id you sent; list or search to find the right one."
+    }
+  ]
+}

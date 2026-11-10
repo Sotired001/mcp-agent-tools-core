@@ -1,0 +1,48 @@
+{
+  "tool": "request_access",
+  "valid": [
+    {
+      "input": {
+        "need": "a tool to rename a bike",
+        "kind": "missing",
+        "trying_to": "fix a typo in a bike's name for the shop manager"
+      },
+      "output": {
+        "request_id": "request-1",
+        "new": true,
+        "note": null
+      }
+    },
+    {
+      "input": {
+        "need": "my key needs stock:write",
+        "kind": "missing",
+        "trying_to": "record a delivery",
+        "error": "bike_stock_adjust needs the API key scope stock:write"
+      },
+      "output": {
+        "request_id": "request-1",
+        "new": true,
+        "note": null
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "input": {
+        "need": "ab",
+        "kind": "missing",
+        "trying_to": "x"
+      },
+      "error": "Bad argument `need`: must be 3 to 140 characters"
+    },
+    {
+      "input": {
+        "need": "a tool to rename a bike",
+        "kind": "urgent",
+        "trying_to": "x"
+      },
+      "error": "Bad argument `kind`: must be one of: broken, missing (got \"urgent\")"
+    }
+  ]
+}

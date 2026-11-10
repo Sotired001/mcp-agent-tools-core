@@ -1,0 +1,112 @@
+{
+  "tool": "bikes_list",
+  "valid": [
+    {
+      "input": {},
+      "output": {
+        "items": [
+          {
+            "sku": "GRV-700",
+            "name": "Gravel Runner 700c",
+            "category": "gravel",
+            "in_stock": 4
+          },
+          {
+            "sku": "TRL-29",
+            "name": "Trail Badger 29",
+            "category": "mountain",
+            "in_stock": 2
+          },
+          {
+            "sku": "CTY-3",
+            "name": "City Glide 3-speed",
+            "category": "city",
+            "in_stock": 0
+          },
+          {
+            "sku": "KID-16",
+            "name": "Puddle Jumper 16",
+            "category": "kids",
+            "in_stock": 7
+          },
+          {
+            "sku": "TND-2",
+            "name": "Tandem Twin",
+            "category": "city",
+            "in_stock": 1
+          }
+        ],
+        "offset": 0,
+        "returned": 5,
+        "total": 5,
+        "next_offset": null
+      }
+    },
+    {
+      "input": {
+        "category": "city",
+        "in_stock_only": true
+      },
+      "output": {
+        "items": [
+          {
+            "sku": "TND-2",
+            "name": "Tandem Twin",
+            "category": "city",
+            "in_stock": 1
+          }
+        ],
+        "offset": 0,
+        "returned": 1,
+        "total": 1,
+        "next_offset": null
+      }
+    },
+    {
+      "input": {
+        "limit": 2,
+        "offset": 2
+      },
+      "output": {
+        "items": [
+          {
+            "sku": "CTY-3",
+            "name": "City Glide 3-speed",
+            "category": "city",
+            "in_stock": 0
+          },
+          {
+            "sku": "KID-16",
+            "name": "Puddle Jumper 16",
+            "category": "kids",
+            "in_stock": 7
+          }
+        ],
+        "offset": 2,
+        "returned": 2,
+        "total": 5,
+        "next_offset": 4
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "input": {
+        "category": "road"
+      },
+      "error": "Bad argument `category`: must be one of: gravel, mountain, city, kids (got \"road\")"
+    },
+    {
+      "input": {
+        "limit": 0
+      },
+      "error": "Bad argument `limit`: must be from 1 to 100 (got 0)"
+    },
+    {
+      "input": {
+        "page": 2
+      },
+      "error": "Bad argument `page`: isn't a field here; the fields are: category, in_stock_only, limit, offset"
+    }
+  ]
+}
